@@ -132,7 +132,7 @@ namespace ConsoleApp1
             for (int i = 0; i < sheeps.Length; i++)
             {
                 if (sheeps[i] == true)
-                    cnt++;                
+                    cnt++;
             }
             return cnt;
         }
@@ -177,6 +177,23 @@ namespace ConsoleApp1
             }
 
             return str;
+        }
+        #endregion
+
+        #region Squaring every digit of the int input
+
+        public static int SquareDigits(int n)
+        {
+            string number = n.ToString();
+            string[] arr = new string[number.Length];
+            string whole = "";
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = number[i].ToString();
+                whole += Math.Pow(int.Parse(arr[i]), 2);
+            }
+            return int.Parse(whole);
         }
         #endregion
     }

@@ -24,6 +24,7 @@ namespace ConsoleApp1
                 Console.WriteLine("6. Sheep Counter inside the boolean array counting only the true sheeps.");
                 Console.WriteLine("7. Complete the square sum function so that it squares each number passed into it and then sums the results together. For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9.");
                 Console.WriteLine("8. Remove space from string.");
+                Console.WriteLine("9. Squaring every digit of the int input");
 
                 var input = Console.ReadLine();
                              
@@ -91,19 +92,23 @@ namespace ConsoleApp1
                             n[i] = int.Parse(arr1[i]);
                         }
                         Console.WriteLine(SolutionMethods.SquareSum(n).ToString());                        
-                        continue;
-                    //Removing space from string
+                        continue;       
+                        //Removing space from string
                     case "8":
                         Console.WriteLine("Type the string you want to remove space:");
                         string strSpace = Console.ReadLine();
                         Console.WriteLine(SolutionMethods.NoSpace(strSpace));
                         continue;
-                    
+                        //Squaring every digit of the int input
+                    case "9":
+                        Console.WriteLine("Enter with a number that will be converted");
+                        int num2 = int.Parse(Console.ReadLine());
+                        Console.WriteLine(SolutionMethods.SquareDigits(num2));
+                        continue;
 
 
 
-
-                   //Exit
+                    //Exit
                     case "EXIT":
                         valid = false;
                         break;
@@ -115,7 +120,6 @@ namespace ConsoleApp1
         } 
         
     }
-
 
 }
 
