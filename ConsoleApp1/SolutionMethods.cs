@@ -196,5 +196,42 @@ namespace ConsoleApp1
             return int.Parse(whole);
         }
         #endregion
+
+        #region Int Number in descending order
+
+        //Better solution 1
+        //public static int DescendingOrder(int num)
+        //{
+        //    return int.Parse(string.Concat(num.ToString().OrderByDescending(x => x)));
+        //}
+        //Better solution 2
+        //public static int DescendingOrder(int num)
+        //{
+        //    return int.Parse(string.Concat($"{num}".OrderByDescending(c => c)));
+        //}
+
+        public static int DescendingOrder(int num)
+        {
+            string number = num.ToString();
+            int [] array = new int[number.Length];
+            string result = "";
+
+            for (int i = 0; i < number.Length; i++)
+            {
+                array[i] = int.Parse(number.Substring(i, 1).ToString());               
+            }
+
+            Array.Sort(array);
+            Array.Reverse(array);
+
+            foreach (var item in array)
+            {
+                result += item.ToString(); 
+            }
+
+            return int.Parse(result);
+        }
+
+        #endregion
     }
 }
