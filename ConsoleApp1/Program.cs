@@ -106,11 +106,19 @@ namespace ConsoleApp1
                         int num2 = int.Parse(Console.ReadLine());
                         Console.WriteLine(SolutionMethods.SquareDigits(num2));
                         continue;
+                        //Int Number in descending order
                     case "10":
                         Console.WriteLine("Enter with a number that will be sorted in descending order");
                         int num3 = int.Parse(Console.ReadLine());
                         Console.WriteLine(SolutionMethods.DescendingOrder(num3));
                         continue;
+                        //Converts this -> "abcd" into this "A-Bb-Ccc-Dddd"
+                    case "11":
+                        Console.WriteLine("Enter with a string that will be converted");
+                        string str = Console.ReadLine();
+                        Console.WriteLine(SolutionMethods.Accum(str));
+                        continue;
+
                     //Exit
                     case "EXIT":
                         valid = false;

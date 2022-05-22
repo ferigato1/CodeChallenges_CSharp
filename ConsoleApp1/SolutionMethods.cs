@@ -213,12 +213,12 @@ namespace ConsoleApp1
         public static int DescendingOrder(int num)
         {
             string number = num.ToString();
-            int [] array = new int[number.Length];
+            int[] array = new int[number.Length];
             string result = "";
 
             for (int i = 0; i < number.Length; i++)
             {
-                array[i] = int.Parse(number.Substring(i, 1).ToString());               
+                array[i] = int.Parse(number.Substring(i, 1).ToString());
             }
 
             Array.Sort(array);
@@ -226,12 +226,71 @@ namespace ConsoleApp1
 
             foreach (var item in array)
             {
-                result += item.ToString(); 
+                result += item.ToString();
             }
 
             return int.Parse(result);
         }
 
+        #endregion
+
+        #region Converts this -> "abcd" into this "A-Bb-Ccc-Dddd"
+
+        //Better solution
+        //public static String Accum(string s)
+        //{
+        //    return string.Join("-", s.Select((x, i) => char.ToUpper(x) + new string(char.ToLower(x), i)));
+        //}
+        //Better solution 2
+        //public static String Accum(string s)
+        //{
+        //    return String.Join("-", s.Select((c, i) => Char.ToUpper(c) + new String(Char.ToLower(c), i)));
+        //}
+
+        public static string Accum(string s)
+        {
+            string[] arrayOrig = new string[s.Length];
+            string[] arrayResult = new string[s.Length];
+            int letterCounter = 1;
+            bool firstTime = true;
+            string upper, lower, whole;
+
+            for (int i = 0; i < arrayOrig.Length; i++)
+            {
+                arrayOrig[i] = s.Substring(i, 1);
+            }
+
+            for (int i = 0; i < arrayOrig.Length; i++)
+            {
+                if (arrayOrig[i].Length == 1 && firstTime == true)
+                {
+                    arrayResult[i] = arrayOrig[i];
+                    firstTime = false;
+                }
+                else
+                {
+                    for (int j = 0; j <= letterCounter; j++)
+                    {
+                        arrayResult[i] += arrayOrig[i];
+                    }
+                    letterCounter++;
+                }
+            }
+
+            for (int i = 0; i < arrayResult.Length; i++)
+            {
+                for (int j = 0; j < arrayResult.Length; j++)
+                {
+                    upper = arrayResult[j].Substring(0, 1).ToUpper();
+                    lower = arrayResult[j].Substring(1).ToLower();
+                    whole = upper + lower;
+                    arrayResult[i] = whole;
+                    i++;
+                }              
+            }           
+
+            return String.Join('-', arrayResult);
+        }
         #endregion
     }
 }
