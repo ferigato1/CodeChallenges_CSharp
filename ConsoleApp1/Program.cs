@@ -26,7 +26,9 @@ namespace ConsoleApp1
                 Console.WriteLine("8. Remove space from string.");
                 Console.WriteLine("9. Squaring every digit of the int input");
                 Console.WriteLine("10. Convert Int Number in descending order");
-
+                Console.WriteLine("11. Converts this -> abcd into this A - Bb - Ccc - Dddd");
+                Console.WriteLine("12. If even number of characters in the string return the 2 characters in the middle if odd return the one in the middle");
+                Console.WriteLine("13. Is it a perfect square?");
                 var input = Console.ReadLine();
                              
                 switch (input.ToUpper())
@@ -118,7 +120,19 @@ namespace ConsoleApp1
                         string str = Console.ReadLine();
                         Console.WriteLine(SolutionMethods.Accum(str));
                         continue;
-
+                        //If even number of characters in the string return the 2 characters in the middle if odd return the one in the middle
+                    case "12":
+                        Console.WriteLine("Enter a string");
+                        string str3 = Console.ReadLine();
+                        Console.WriteLine(SolutionMethods.GetMiddle(str3));
+                        continue;
+                        //Is it a perfect Square?
+                    case "13":
+                        Console.WriteLine("Please insert a integer number to verify if it's a perfect square:");
+                        int square = int.Parse(Console.ReadLine());
+                        Console.WriteLine(SolutionMethods.IsSquare(square));
+                        continue;
+                        
                     //Exit
                     case "EXIT":
                         valid = false;

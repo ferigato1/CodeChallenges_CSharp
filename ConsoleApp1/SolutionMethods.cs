@@ -286,10 +286,64 @@ namespace ConsoleApp1
                     whole = upper + lower;
                     arrayResult[i] = whole;
                     i++;
-                }              
-            }           
+                }
+            }
 
             return String.Join('-', arrayResult);
+        }
+        #endregion
+
+        #region If even number of characters in the string return the 2 characters in the middle if odd return the one in the middle
+
+        //Better Solution
+        //public static string GetMiddle(string s)
+        //{
+        //    return s.Length % 2 == 0 ? s.Substring(s.Length / 2 - 1, 2) : s.Substring(s.Length / 2, 1);
+        //}
+
+        public static string GetMiddle(string s)
+        {
+
+            char[] arr = new char[s.Length];
+            string result = "";
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                arr[i] = s[i];
+            }
+
+            foreach (var item in s)
+            {
+                int i = 0;
+                arr[i] = item;
+                i++;
+            }
+
+            if (s.Length % 2 == 0)
+            {
+                for (int i = (arr.Length / 2) - 1; i <= arr.Length / 2; i++)
+                {
+                    result += arr[i].ToString();
+                }
+            }
+            else
+            {
+                int i = (s.Length / 2);
+                result = arr[i].ToString();
+            }
+
+            return result;
+        }
+
+        #endregion
+
+        #region Is it a perfect square?
+        //Better solution
+        //public static bool IsSquare(int n) => (Math.Sqrt(n) % 1 == 0);
+        public static bool IsSquare(int n)
+        {           
+            int sqrt = (int)Math.Sqrt(n);      
+            return Math.Pow(sqrt, 2) == n;
         }
         #endregion
     }
