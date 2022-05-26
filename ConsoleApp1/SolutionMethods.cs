@@ -341,9 +341,81 @@ namespace ConsoleApp1
         //Better solution
         //public static bool IsSquare(int n) => (Math.Sqrt(n) % 1 == 0);
         public static bool IsSquare(int n)
-        {           
-            int sqrt = (int)Math.Sqrt(n);      
+        {
+            int sqrt = (int)Math.Sqrt(n);
             return Math.Pow(sqrt, 2) == n;
+        }
+        #endregion
+
+        #region Reverse each word of a string
+        public static string ReverseWords(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return input;
+            }
+
+            StringBuilder result = new StringBuilder();
+
+            string[] arr = input.Split(' ');
+
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                result.Append(Reverse(arr[i]));
+                if (i != arr.Length - 1)
+                {
+                    result.Append(" ");
+                }
+            }
+            return result.ToString();
+        }
+
+        public static string Reverse(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return input;
+            }
+
+            char[] arr = input.ToCharArray();
+            Array.Reverse(arr);
+
+            return new string(arr);
+        }
+        #endregion
+
+        #region Rotate an array (to the left)
+
+        public static string RoatateArray(string input)
+        {          
+            string [] arr = input.Split(' ');
+            int count = arr.Count();
+            string[] result = new string[count+1];
+
+            
+            StringBuilder str = new StringBuilder();
+
+            for (int i = 0; i < count; i++)
+            {
+                int temp = int.Parse(arr[count - 1]);
+
+                while (i < count -1)
+                {
+                    result[i] = arr[i + 1];
+                    i++;
+                }
+
+                result[temp - 1] = arr[0];
+                
+            }
+            for (int i = 0; i < count; i++)
+            {
+                str.Append(result[i]);
+                str.Append(' ');
+            }
+
+            return str.ToString();
         }
         #endregion
     }

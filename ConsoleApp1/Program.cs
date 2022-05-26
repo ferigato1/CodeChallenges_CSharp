@@ -29,6 +29,7 @@ namespace ConsoleApp1
                 Console.WriteLine("11. Converts this -> abcd into this A - Bb - Ccc - Dddd");
                 Console.WriteLine("12. If even number of characters in the string return the 2 characters in the middle if odd return the one in the middle");
                 Console.WriteLine("13. Is it a perfect square?");
+                Console.WriteLine("14. Reverse each word of a string");
                 var input = Console.ReadLine();
                              
                 switch (input.ToUpper())
@@ -128,11 +129,21 @@ namespace ConsoleApp1
                         continue;
                         //Is it a perfect Square?
                     case "13":
-                        Console.WriteLine("Please insert a integer number to verify if it's a perfect square:");
+                        Console.WriteLine("Please insert an integer number to verify if it's a perfect square:");
                         int square = int.Parse(Console.ReadLine());
                         Console.WriteLine(SolutionMethods.IsSquare(square));
                         continue;
-                        
+                        //Reverse each word of a string
+                    case "14":
+                        Console.WriteLine("Please type a string containing white spaces in between each word:");
+                        var str4 = Console.ReadLine();
+                        Console.WriteLine(SolutionMethods.ReverseWords(str4));
+                        continue;
+                    case "15":
+                        Console.WriteLine("Please type 1 digit numbers separated by white spaces:");
+                        var numbers = Console.ReadLine();
+                        Console.WriteLine(SolutionMethods.RoatateArray(numbers));
+                        continue;
                     //Exit
                     case "EXIT":
                         valid = false;
