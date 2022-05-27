@@ -388,26 +388,26 @@ namespace ConsoleApp1
         #region Rotate an array (to the left)
 
         public static string RoatateArray(string input)
-        {          
-            string [] arr = input.Split(' ');
+        {
+            string[] arr = input.Split(' ');
             int count = arr.Count();
-            string[] result = new string[count+1];
+            string[] result = new string[count + 1];
 
-            
+
             StringBuilder str = new StringBuilder();
 
             for (int i = 0; i < count; i++)
             {
                 int temp = int.Parse(arr[count - 1]);
 
-                while (i < count -1)
+                while (i < count - 1)
                 {
                     result[i] = arr[i + 1];
                     i++;
                 }
 
                 result[temp - 1] = arr[0];
-                
+
             }
             for (int i = 0; i < count; i++)
             {
@@ -417,6 +417,56 @@ namespace ConsoleApp1
 
             return str.ToString();
         }
+        #endregion
+
+        #region Move the failing grades (bellow 60) to the end of the array / list
+
+        public static string FaillingGrades(string input)
+        {
+            string[] arr = input.Split(' ');
+            string result = null;
+            int countFailling = 0;
+            StringBuilder str = new StringBuilder();
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (int.Parse(arr[i]) < 60)
+                {
+                    countFailling++;
+                }
+            }
+                      
+
+            for (int i = 0; i < countFailling; i++)
+            {
+                int temp1 = 0;
+                int temp2 = 0;
+
+                if (int.Parse(arr[arr.Length - i - 1]) >= 60)
+                {
+                    temp2 = int.Parse(arr[arr.Length - i - 1]);
+                }
+                
+                if (int.Parse(arr[i]) < 60)
+                {
+                    temp1 = int.Parse(arr[i]);                    
+                }
+
+                arr[i] = temp2.ToString();
+                arr[arr.Length - i - 1] = temp1.ToString();
+                
+            }
+
+            foreach (var item in arr)
+            {
+               //result += item;
+                str.Append(item);
+                str.Append(" ");
+            }
+
+            return str.ToString();
+        }
+
         #endregion
     }
 }

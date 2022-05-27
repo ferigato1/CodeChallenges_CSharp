@@ -30,6 +30,8 @@ namespace ConsoleApp1
                 Console.WriteLine("12. If even number of characters in the string return the 2 characters in the middle if odd return the one in the middle");
                 Console.WriteLine("13. Is it a perfect square?");
                 Console.WriteLine("14. Reverse each word of a string");
+                Console.WriteLine("15. Rotate an array (to the left)");
+                Console.WriteLine("16. Move the failing grades (bellow 60) to the end of the array / list");
                 var input = Console.ReadLine();
                              
                 switch (input.ToUpper())
@@ -144,6 +146,12 @@ namespace ConsoleApp1
                         var numbers = Console.ReadLine();
                         Console.WriteLine(SolutionMethods.RoatateArray(numbers));
                         continue;
+                    case "16":
+                        Console.WriteLine("Please type grades between 0 and 100 of students separated by white spaces:");
+                        var grades = Console.ReadLine();
+                        Console.WriteLine(SolutionMethods.FaillingGrades(grades));
+                        continue;
+
                     //Exit
                     case "EXIT":
                         valid = false;
